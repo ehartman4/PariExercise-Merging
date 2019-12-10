@@ -14,6 +14,9 @@ describe('Split function', function () {
 
 describe('Merge function', function(){
     it('is able to merge two sorted arrays into one sorted array', function(){
-      // test the merging algorithm
+        expect(merge([2, 5, 6], [3, 8, 9])).toEqual([2, 3, 5, 6, 8, 9])
     });
+    it('is able to merge two other sorted arrays into one sorted array', function(){
+      expect(merge([3, 8, 9], [2, 5, 6])).toEqual([2, 3, 5, 6, 8, 9])
+  });
   });
