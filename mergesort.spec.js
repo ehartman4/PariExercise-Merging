@@ -48,3 +48,14 @@ describe('MergeSort function', function () {
         expect(mergeSort([5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5])
     });
 });
+
+describe('comparator function', function () {
+    it('is able to merge two sorted arrays into one sorted array', function () {
+        expect(mergeSort([{ age: 4 }, { age: 8 }, { age: 2 }, { age: 9 }], function comparator (a, b) {
+            if (a.age < b.age) return -1; // returning `-1` means "a goes before b"
+            if (a.age > b.age) return 1;  // returning  `1` means "b goes before a"
+            return 0; // returning 0 means "a and b are equivalent"
+          })).toEqual([{ age: 2 }, { age: 4 }, { age: 8 }, { age: 9 }])
+    });
+
+});
