@@ -1,9 +1,9 @@
 function split(array) {
     console.log("GIVEN ARRAY: ", array)
 
-    if (array.length === 0) {
+    if (array.length === 0 || array.length === 1) {
         return array
-    }
+    } 
 
     let result = [array.slice(0, (array.length / 2)), array.slice(array.length / 2)]
 
@@ -56,4 +56,18 @@ function merge(array1,array2) {
   }
 
   return result
+}
+
+function mergeSort(array) {
+    
+    let splitArray = split(array)
+
+    if (splitArray.length === 2) {
+        let merge1 = mergeSort(splitArray[0])
+        let merge2 = mergeSort(splitArray[1])
+        let mergedArray = merge(merge1, merge2)
+        return mergedArray
+    } else {
+        return splitArray
+    }
 }
